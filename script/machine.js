@@ -1,9 +1,9 @@
-// Total count 
+// Total and job count 
 let totalCount = getElement('total-count');
-let totalCount2 = getElement('count');
+let jobCount = getElement('count');
 const allCards = cards('all-cards');
 totalCount.innerText = allCards;
-totalCount2.innerText = allCards;
+jobCount.innerText = allCards;
 
 
 // Get Element
@@ -21,19 +21,6 @@ function cards(id){
 
 // 3 buttons toggle and section hidden
 function toggle(id){
-   /*  let countJobs = getElement('count');
-    if(id === 'rejected-btn'){
-        const allCards = cards('rejected-parent');
-        countJobs.innerText = allCards;
-    }
-    else if(id === 'interview-btn'){
-        const allCards = cards('interview-parent');
-        countJobs.innerText = allCards;
-    }
-    else{
-        const allCards = cards('all-cards');
-        countJobs.innerText = allCards;
-    } */
     // get 2 buttons
     const all = getElement('all-btn');
     const interview = getElement('interview-btn');
@@ -194,7 +181,7 @@ function delet(id){
     // Update Total count
     const allCards = cards('all-cards');
     totalCount.innerText = allCards;
-    totalCount2.innerText = allCards;
+    jobCount.innerText = allCards;
 
 }
 
