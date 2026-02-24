@@ -3,27 +3,27 @@ let totalCount = getElement('total-count');
 const allCards = cards('all-cards');
 totalCount.innerText = allCards;
 
-let intCount = getElement('interview-count');
+/* let intCount = getElement('interview-count');
 const allInterviewCards = cards('interview-parent');
-intCount.innerText = allInterviewCards-1;
+intCount.innerText = allInterviewCards-1; */
 
-let rejectCount = getElement('rejected-count');
+/* let rejectCount = getElement('rejected-count');
 const allRejectedCards = cards('rejected-parent');
-rejectCount.innerText = allRejectedCards-1;
+rejectCount.innerText = allRejectedCards-1; */
 
 // Get Element
 function getElement(id){
     const element = document.getElementById(id);
     return element;
 }
-/* 
+
 // Card Count
 function cards(id){
     const allCards = document.getElementById(id);
     const cardCount = allCards.children.length; 
     return cardCount; 
 }
- */
+
 // 3 buttons toggle and section hidden
 function toggle(id){
    /*  let countJobs = getElement('count');
@@ -48,10 +48,6 @@ function toggle(id){
     all.classList.remove('btn-active', 'btn-error', 'border', 'border-3');
     interview.classList.remove('btn-active', 'btn-error', 'border', 'border-3');
     rejected.classList.remove('btn-active', 'btn-error', 'border', 'border-3');
-
-    // all.classList.add('btn-active', 'btn-error');
-    // interview.classList.add('btn-active', 'btn-error');
-    // rejected.classList.add('btn-active', 'btn-error');
 
     // Add class on the clicked button
     const perform = getElement(id);
@@ -79,12 +75,13 @@ function toggle(id){
         rejectHidden.classList.add('hidden');
     }
 }
-/* 
+
 // Find parent
 function parent(id){
-    const child = getElement(id);
-    const parent = child.parentNode.parentNode;
-    return parent;
+    const clickedBtn = getElement(id);
+    const btnParent = clickedBtn.parentNode.parentNode;
+    // console.log(btnParent);
+    return btnParent;
 }
 
 // find status
@@ -113,10 +110,9 @@ function statusFun(interviewCard, status){
         span.classList.remove('border-3', 'border-green-600', 'text-green-600', 'bg-white')
         span.classList.add('border-3', 'border-red-600', 'text-red-600', 'bg-white')
     }
-    
-    
     // console.log(span.innerText);
 }
+
 
 // Interview section
 function interview(id){
@@ -124,28 +120,29 @@ function interview(id){
     const contect1 = getElement('content1');
     contect1.classList.add('hidden');
 
+    // Get the clicked buttons full card
+    const interviewCard = parent(id);
+    
+    // copy the full card
+    const copyCard = interviewCard.cloneNode(true);
+
+    // get the card id
+    const cardId = copyCard.id;
+    
     // get interview parent container
     const interviewContainer = getElement('interview-parent');
 
-    // Get full card
-    const interviewCard = parent(id);
-    const copyCard = interviewCard.cloneNode(true);
-
-    // push the card into parent container
-    // console.log(copyCard.innerText);
-    // console.log(interviewContainer.children[0].innerText);
-    let flag = 0;
-    for(let i = 0; i<interviewContainer.children.length; i++){
-        if(copyCard.innerText === interviewContainer.children[i].innerText){
-            flag+=1;
-        }
-    }
-    if(flag === 0){
+    const exist = interviewContainer.querySelector(`#${cardId}`);
+    // console.log(exist);
+    if(!exist){
+        
+        // append in new card
         interviewContainer.appendChild(copyCard);
+
+        
     }
 
-
-    // change status
+    // change status in main card
     const status = statusFun(interviewCard, 'Interview');
     
 }
@@ -171,7 +168,25 @@ function rejected(id){
     const status = statusFun(rejectCard, 'Rejected');
 
 }
- */
-const mainContainer =  document.querySelector('main');
-console.log()
-mainContainer.ad
+
+/* const mainContainer =  document.querySelector('main');
+mainContainer.addEventListener('click', function(event){
+    const parentnode = event.target.parentNode.parentNode;
+    // const a = parentnode.querySelector('.a');
+    // console.log(a.innerText);
+    const copyCard = parentnode.cloneNode(true);
+    const interviewContainer = getElement('interview-parent');
+    const cardId = copyCard.id;
+    const f = interviewContainer.appendChild(copyCard);
+    console.log(cardId);
+    const exist = interviewContainer.querySelector(`#${cardId}`);
+    // console.log(exist);
+    // if (!exist) {
+    //     interviewContainer.appendChild(copyCard);
+    //     console.log("not exists");
+    // } 
+    // else {
+        
+    //     console.log("exist");
+    // }
+}) */

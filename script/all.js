@@ -2,9 +2,10 @@
 
 // let interviewCount = getElement('interview-count');
 // let rejectedCount = getElement('rejected-count');
-let totalCount = getElement('total-count');
-const allCards = cards('all-cards');
-totalCount.innerText = allCards;
+
+// let totalCount = getElement('total-count');
+// const allCards = cards('all-cards');
+// totalCount.innerText = allCards;
 // card children number count
 
 // const interviewCards = cards('interview-parent');
