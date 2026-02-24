@@ -73,6 +73,7 @@ function statusFun(interviewCard, status){
         // change interview count
         const interviewCards = cards('interview-parent');
         getElement('interview-count').innerText = interviewCards-1;
+
         // console.log(getElement('interview-count').innerText);
     }
     else if(span.innerText != 'REJECTED' && status ===  'Rejected'){
@@ -185,3 +186,18 @@ function delet(id){
 
 }
 
+// Jobs changes
+function clickInterviewSection(id){
+    if(id == 'interview-btn'){
+        const allCards = cards('interview-parent');
+        jobCount.innerText = allCards-1;
+    }
+    else if(id == 'rejected-btn'){
+        const allCards = cards('rejected-parent');
+        jobCount.innerText = allCards-1;
+    }
+    else{
+        const allCards = cards('all-cards');
+        jobCount.innerText = allCards;
+    }
+}
