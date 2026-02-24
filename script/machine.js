@@ -1,7 +1,10 @@
 // Total count 
 let totalCount = getElement('total-count');
+let totalCount2 = getElement('count');
 const allCards = cards('all-cards');
 totalCount.innerText = allCards;
+totalCount2.innerText = allCards;
+
 
 // Get Element
 function getElement(id){
@@ -105,7 +108,6 @@ function statusFun(interviewCard, status){
     // console.log(span.innerText);
 }
 
-
 // Interview section
 function interview(id){
     // hide interview pages default content
@@ -144,7 +146,6 @@ function interview(id){
         btnParent.children[i].classList.add('btn-disabled');
     }
 }
-
 
 // Reject section
 function rejected(id){
@@ -185,24 +186,15 @@ function rejected(id){
     }
 }
 
-/* const mainContainer =  document.querySelector('main');
-mainContainer.addEventListener('click', function(event){
-    const parentnode = event.target.parentNode.parentNode;
-    // const a = parentnode.querySelector('.a');
-    // console.log(a.innerText);
-    const copyCard = parentnode.cloneNode(true);
-    const interviewContainer = getElement('interview-parent');
-    const cardId = copyCard.id;
-    const f = interviewContainer.appendChild(copyCard);
-    console.log(cardId);
-    const exist = interviewContainer.querySelector(`#${cardId}`);
-    // console.log(exist);
-    // if (!exist) {
-    //     interviewContainer.appendChild(copyCard);
-    //     console.log("not exists");
-    // } 
-    // else {
-        
-    //     console.log("exist");
-    // }
-}) */
+// Delete card
+function delet(id){
+    // const icon = getElement(id);
+    const  iconParent = parent(id);
+    iconParent.remove();
+    // Update Total count
+    const allCards = cards('all-cards');
+    totalCount.innerText = allCards;
+    totalCount2.innerText = allCards;
+
+}
+
