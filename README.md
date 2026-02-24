@@ -1,83 +1,43 @@
-## Welcome To ( সহজ সরল সিম্পল ) Assignment - 4 
-
-
----
-# 📅 Deadline For 60 marks: 23th February, 2026 (11:59 pm ⏱️)
-# 📅 Deadline For 50 marks: 24th February, 2026 (11:59 pm ⏱️)
-# 📅 Deadline For 30 marks: Any time after 24th February.
-
-
-# Main Requirements
-
-## Design Part
-
-## Dashboard
-- Website name and Create a dashboard like figma 
-- The section should be responsive for mobile devices. It is totally up to you. 
-
-## Available Jobs Section
-- A title on the left side, jobs count on the right side 
-- 3 different tab  below the section title 
-- Minimum 8 cards with:
-	- companyName
-	- position
-	- location
-	- type
-	- salary
-	- description
-	- 2 buttons: Interview, Rejected
-- By default all the jobs data will show on All tab, and the Interview, Rejected tab will show “No jobs Available” message with a subtitle below and an icon/image on the above
-
-- The section should be responsive for mobile devices. It is totally up to you.
-
---- 
-
-## Functionalities Part
-- Clicking on Interview button on the card 
-    - will add the data on Interview tab 
-    - add the status as Interview.
-    - Will increase the the count of interview in Dashboard 
-
-- Clicking on Rejected button on the card 
-    - will add the data on Rejected tab 
-    - add the status as Rejected.
-    - Will increase the the count of Rejected in Dashboard
-
-- Enable toggle between Interview and rejected button(you can select Rejected button after clicking on Interview, and Interview button after clicking on Rejected button). It will change the tab and dashboard count also. It will show tab wise jobs count on the right.
-
----
-
-# Challenges Requirements
-- Clicking on the delete button will remove that card from the UI, and the count will be deducted from the dashboard card and the main section.
-- No lorem ipsum text on your website. At least 8 meaningful commits in your project.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
-
-
-## Answers to Questions
 
 ### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
+Ans: 
+Differents between getElementById, getElementsByClassName, and querySelector / querySelectorAll is:
+
+getElementById(): It selects element by id. The id must be unique. It returns only one element.
+
+getElementsByClassName(): It selects elements by class name. One or more elements can have same class. It returns HTMLCollection.
+
+querySelector(): It selects element by CSS selector. It returns only 1st matching element.
+
+querySelectorAll(): It selects element by CSS selector. It returns all matching element. And it returns NodeList.
 
 ### 2. How do you create and insert a new element into the DOM?
+Ans:
+step-1: Create new element. Ex: const p = document.createElement('p');
+step-2: Add something into the element. Ex: p.innerText = "Tasnima  Tabassum Tima";
+step-3: Select the parent element. Let, parent node is "<div id="parent"></div>". Ex: const parent = document.getElementById('parent');
+step-4: Append this element into parent.Ex: parent.appendChild(p);
 
 ### 3. What is Event Bubbling? And how does it work?
+Ans:
+When an event happens on a child element, it moves upward to its parent elements.
+When clicked on a button, the event happens on that element 1st. Then it continuously moves to upward to its parent and then grandparent. Before the last move, it moves to the document and finally it moves to the window. this is called Event Bubbling. 
 
 ### 4. What is Event Delegation in JavaScript? Why is it useful?
+Ans: 
+Without adding event listener to many childs, we add one event listener to the parent. It is called Event Delegation. 
+
+advantage:
+1. No need to add many event listener.
+2. It works for after added elements.
+3. code is clean.
 
 ### 5. What is the difference between preventDefault() and stopPropagation() methods?
+Ans:
+Difference between preventDefault() and stopPropagation() methods:
+preventDefault(): 
+1. Stop link from opening
+2. When a form is submitted, the page reloads.
 
----
-
-
-**Technology Stack:**
-- HTML
-- CSS (Vanilla/Tailwind/DaisyUI)
-- JavaScript (Vanilla)
-
-
---- 
-
-## What to submit: 
-
-1. GitHub Repository Link: 
-2. Live Site Link: 
+stopPropagation():
+1. It is used for stops event bubbling.
