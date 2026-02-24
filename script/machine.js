@@ -3,14 +3,6 @@ let totalCount = getElement('total-count');
 const allCards = cards('all-cards');
 totalCount.innerText = allCards;
 
-/* let intCount = getElement('interview-count');
-const allInterviewCards = cards('interview-parent');
-intCount.innerText = allInterviewCards-1; */
-
-/* let rejectCount = getElement('rejected-count');
-const allRejectedCards = cards('rejected-parent');
-rejectCount.innerText = allRejectedCards-1; */
-
 // Get Element
 function getElement(id){
     const element = document.getElementById(id);
@@ -135,16 +127,22 @@ function interview(id){
     const exist = interviewContainer.querySelector(`#${cardId}`);
     // console.log(exist);
     if(!exist){
-        
+        // change status of new card
+        statusFun(copyCard, 'Interview');
+
         // append in new card
         interviewContainer.appendChild(copyCard);
-
-        
     }
 
     // change status in main card
     const status = statusFun(interviewCard, 'Interview');
     
+    // button disable
+    const clickedBtn = getElement(id);
+    const btnParent = clickedBtn.parentNode;
+    for(let i = 0; i<btnParent.children.length; i++){
+        btnParent.children[i].classList.add('btn-disabled');
+    }
 }
 
 
@@ -154,19 +152,37 @@ function rejected(id){
     const contect2 = getElement('content2');
     contect2.classList.add('hidden');
 
+    // Get the clicked buttons full card
+    const rejectedCard = parent(id);
+    
+    // copy the full card
+    const copyCard = rejectedCard.cloneNode(true);
+
+    // get the card id
+    const cardId = copyCard.id;
+    
     // get interview parent container
-    const rejectContainer = getElement('rejected-parent');
+    const rejectedContainer = getElement('rejected-parent');
 
-    // Get full card
-    const rejectCard = parent(id);
-    const copyCard = rejectCard.cloneNode(true);
+    const exist = rejectedContainer.querySelector(`#${cardId}`);
+    // console.log(exist);
+    if(!exist){
+        // change status of new card
+        statusFun(copyCard, 'Rejected');
 
-    // push the card into parent container
-    rejectContainer.appendChild(copyCard);
+        // append in new card
+        rejectedContainer.appendChild(copyCard);
+    }
 
-    // change status
-    const status = statusFun(rejectCard, 'Rejected');
+    // change status in main card
+    statusFun(rejectedCard, 'Rejected');
 
+    // button disable
+    const clickedBtn = getElement(id);
+    const btnParent = clickedBtn.parentNode;
+    for(let i = 0; i<btnParent.children.length; i++){
+        btnParent.children[i].classList.add('btn-disabled');
+    }
 }
 
 /* const mainContainer =  document.querySelector('main');
